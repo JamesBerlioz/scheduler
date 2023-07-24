@@ -1,1 +1,8 @@
-@forward 'html-elements'
+@forward "html-elements/global";
+@forward "html-elements/handler/handler";
+@forward "html-elements/routine/routine";
+@forward "html-elements/routine/__title/routine__title";
+@forward "html-elements/routine/__case/routine__case";
+@forward "html-elements/routine/__empty-case/routine__empty-case";
+@forward "html-elements/routine/__case/__task/routine__task";
+@forward "html-elements/routine/__case/__time/routine__time";
