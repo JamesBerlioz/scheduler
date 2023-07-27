@@ -1,5 +1,9 @@
-export function changeOldTask(routine__inputCase, routine, routine__case) {
-  routine.replaceChild(routine__inputCase, routine__case);
+import { todayCaseAmount, todayCases } from "./elements/routine__case";
 
-  routine__inputCase.value = routine__case.innerText;
+export function changeOldTask(routine, routine__inputCase, routine__case) {
+  routine.replaceChild(routine__inputCase, routine__case);
+  routine__inputCase.children[0].value = routine__case.children[1].innerText;
+  routine__inputCase.children[0].focus();
+
+  console.log(todayCases)
 }

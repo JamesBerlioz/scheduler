@@ -1,6 +1,7 @@
-import { addElementIntoDom, createElement } from "../createElement";
-import { handlerUp } from "./handler";
+import { SuperElement } from "./class_SuperElement";
 
-export const todayRoutine = createElement("routine", "div", "todayRoutine");
-
-addElementIntoDom(todayRoutine, handlerUp);
+export class routine extends SuperElement {
+  constructor(id) {
+    super("routine", "div", id);
+  }
+}

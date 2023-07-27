@@ -5,8 +5,8 @@ export function createElement(elementClassName, elementTagName, elementId) {
   return element;
 }
 
-export function addElementIntoDom(element, parentElement, elementId) {
-  if (elementId) element.id = elementId;
-  parentElement.append(element);
+export function addElementIntoDom(element, parentElement, place = "end") {
+  if (place == "end") parentElement.append(element);
+  else if (place == "start") parentElement.prepend(element);
   return element;
 }

@@ -2,17 +2,34 @@ import {
   createElement,
   addElementIntoDom,
 } from "../createElement";
-import { todayCases } from "./routine__case";
+import { todayCaseAmount, todayCases } from "./routine__case";
+import { SuperElement } from "./class_SuperElement";
 
+
+export class routine__time extends SuperElement {
+  constructor(id) {
+    super("routine__time", "time", id)
+
+    this.constructor.count++;
+  }
+
+  static count = 0;
+
+  static getCount() {
+    return routine__time.count;
+  }
+}
+
+/*
 export const todayCaseTimes = [];
-let count = todayCaseTimes.length;
 
 export function addTodayCaseTime(innerText, dateTime) {
   todayCaseTimes.push(
-    createElement("routine__time", "time", `todayCase_${count + 1}Time`)
+    createElement("routine__time", "time", `todayCase_${todayCaseAmount.value + 1}Time`)
   );
-  addElementIntoDom(todayCaseTimes[count], todayCases[count]);
-  todayCaseTimes[count].innerText = innerText;
-  todayCaseTimes[count].dateTime = dateTime;
-  count = todayCaseTimes.length;
+  console.log(todayCases)
+  addElementIntoDom(todayCaseTimes[todayCaseAmount.value], todayCases[todayCaseAmount.value]);
+  todayCaseTimes[todayCaseAmount.value].innerText = innerText;
+  todayCaseTimes[todayCaseAmount.value].dateTime = dateTime;
 }
+*/

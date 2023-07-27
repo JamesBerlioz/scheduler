@@ -1,13 +1,7 @@
-import {
-  createElement,
-  addElementIntoDom,
-} from "../createElement";
-import { todayEmpty } from "./routine__empty-case";
+import { SuperElement } from "./class_SuperElement";
 
-export const todayEmptyText = createElement(
-  "routine__new-text",
-  "p",
-  "todayEmptyText"
-);
-
-addElementIntoDom(todayEmptyText, todayEmpty);
+export class routine__emptyText extends SuperElement {
+  constructor(id) {
+    super("routine__empty-text", "p", id);
+  }
+}

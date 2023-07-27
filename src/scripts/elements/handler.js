@@ -1,5 +1,7 @@
-import { addElementIntoDom, createElement } from "../createElement";
+import { SuperElement } from "./class_SuperElement";
 
-export const handlerUp = createElement("handler", "div", "handlerUp");
-
-addElementIntoDom(handlerUp, document.getElementById("main"));
+export class handler extends SuperElement {
+  constructor(id) {
+    super("handler", "div", id);
+  }
+}
