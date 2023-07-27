@@ -1,3 +1,5 @@
+@use 'colors' as c;
+
 html {
   box-sizing: border-box;
   font-size: 100%;
@@ -12,7 +14,7 @@ html {
 }
 
 body {
-  background-color: rgb(235, 223, 201);
+  background-color: c.$background-color;
 }
 
 a {

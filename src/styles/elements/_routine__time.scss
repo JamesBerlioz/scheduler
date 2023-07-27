@@ -1,0 +1,10 @@
+@use '../fonts' as f;
+
+.routine__time {
+  font-size:f.$size;
+  font-family: f.$open-sans;
+  font-weight: f.$weight;
+
+  margin-right: 10px;
+  margin-left: 5px;
+}

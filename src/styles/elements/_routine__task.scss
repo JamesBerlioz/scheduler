@@ -1,0 +1,7 @@
+@use '../fonts' as f;
+
+.routine__task{
+    font-size:f.$size;
+    font-family: f.$open-sans;
+    font-weight: f.$weight;
+}

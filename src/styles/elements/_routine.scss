@@ -1,0 +1,10 @@
+$routine-width: 400px;
+$routine-heigth: 200px;
+$routine-border: 4px;
+
+.routine{
+    border: $routine-border solid rgba($color: #e92626, $alpha: 1.0);
+
+    width: $routine-width;
+    height: $routine-heigth;
+}

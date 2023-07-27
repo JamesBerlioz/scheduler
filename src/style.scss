@@ -1,8 +1,14 @@
-@forward "html-elements/global";
-@forward "html-elements/handler/handler";
-@forward "html-elements/routine/routine";
-@forward "html-elements/routine/__title/routine__title";
-@forward "html-elements/routine/__case/routine__case";
-@forward "html-elements/routine/__empty-case/routine__empty-case";
-@forward "html-elements/routine/__case/__task/routine__task";
-@forward "html-elements/routine/__case/__time/routine__time";
+@forward "styles/boilerplate";
+@forward "styles/colors";
+@forward "styles/fonts";
+
+@forward "styles/elements/handler";
+@forward "styles/elements/routine";
+@forward "styles/elements/routine__title";
+@forward "styles/elements/routine__case";
+@forward "styles/elements/routine__empty-case";
+@forward "styles/elements/routine__empty-text";
+@forward "styles/elements/routine__task";
+@forward "styles/elements/routine__time";
+@forward "styles/elements/routine__input-case";
+@forward "styles/elements/routine__input";

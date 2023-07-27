@@ -1,0 +1,7 @@
+@use "../fonts" as f;
+
+.routine__empty-text {
+  font-size: f.$size;
+  font-family: f.$open-sans;
+  font-weight: f.$weight;
+}

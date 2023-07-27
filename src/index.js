@@ -1,7 +1,7 @@
-import { handler } from "./html-elements/handler/handler";
-import { routine } from "./html-elements/routine/routine";
-import { routine__title } from "./html-elements/routine/__title/routine__title";
-import { routine__case } from "./html-elements/routine/__case/routine__case";
-import { routine__time } from "./html-elements/routine/__case/__time/routine__time";
-import { routine__task } from "./html-elements/routine/__case/__task/routine__task";
-import { routine__empty_case } from "./html-elements/routine/__empty-case/routine__empty-case";
+import { createElement, addElementIntoDom } from "./scripts/createElement";
+
+import { todayTitle } from "./scripts/elements/routine__title";
+import { todayCaseTimes } from "./scripts/elements/routine__time";
+import { todayCaseTasks } from "./scripts/elements/routine__task";
+import { todayEmptyText } from "./scripts/elements/routine__empty-text";
+import { todayInputText } from "./scripts/elements/routine__input";

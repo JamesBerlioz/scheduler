@@ -1,0 +1,18 @@
+@use "../colors" as c;
+@use "routine__case" as case;
+
+.routine__empty-case {
+  border: none;
+  margin: 0 case.$case-margin;
+
+  width: case.$case-width;
+  height: case.$case-height;
+
+  cursor: pointer;
+  background-color: inherit;
+  transition: 0.3s;
+}
+
+.routine__empty-case:hover {
+  background-color: c.$case-hover-color;
+}
