@@ -1,7 +1,4 @@
-import { createElement, addElementIntoDom } from "../createElement";
-import { todayRoutine } from "./routine";
-import { SuperElement } from "./class_SuperElement";
-
+import SuperElement from "./class_SuperElement";
 
 export class routine__title extends SuperElement {
   constructor(id) {
@@ -12,11 +9,3 @@ export class routine__title extends SuperElement {
     };
   }
 }
-
-/*
-export const todayTitle = createElement("routine__title", "h3", "todayTitle");
-
-addElementIntoDom(todayTitle, todayRoutine);
-
-todayTitle.innerText = "Today:";
-*/

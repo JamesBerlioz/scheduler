@@ -1,5 +1,8 @@
-import { replaceEmptyWithInput } from "../common_functions/caseFunctions";
-import { SuperElement } from "./class_SuperElement";
+import {
+  mode,
+  replaceEmptyWithInput,
+} from "../common_functions/replaceFunctions";
+import SuperElement from "./class_SuperElement";
 
 export class routine__emptyCase extends SuperElement {
   constructor(id, inputCase) {
@@ -14,21 +17,8 @@ export class routine__emptyCase extends SuperElement {
     });
 
     this.htmlObject.addEventListener("click", () => {
-      replaceEmptyWithInput(this.htmlObject, inputCase);
+      mode.setNew();
+      replaceEmptyWithInput(this.htmlObject, inputCase.htmlObject);
     });
   }
 }
-
-/*
-todayEmpty.addEventListener("mouseover", () => {
-  todayEmpty.children[0].innerHTML = "+";
-});
-todayEmpty.addEventListener("mouseout", () => {
-  todayEmpty.children[0].innerHTML = "";
-});
-
-todayEmpty.addEventListener("click", () => {
-  createNewTask(todayEmpty, todayRoutine, todayInputCase, todayInputText);
-  mode.makeNew();
-});
-*/
