@@ -1,2 +1,161 @@
-(()=>{function L(t,e,o){let n=document.createElement(e);return n.className=t,n.id=o,n}function P(t,e,o="end"){return o=="end"?e.append(t):o=="start"&&e.prepend(t),t}var r=class{constructor(e,o,n){this.htmlObject=L(e,o,n),this.addToParent=function(m,k){P(this.htmlObject,m.htmlObject,k)}}};var f=class extends Array{},s=new f,c=new f;var b=class extends r{constructor(e){super("handler","div",e)}};var l=class extends r{constructor(e){super("routine","div",e)}};var x=class extends r{constructor(e){super("routine__case","button",e),this.hasClickEventListener=!1}addClickEventListener(e){this.hasClickEventListener=!0,this.htmlObject.addEventListener("click",()=>{i.setOld(),W(this.htmlObject,e.htmlObject)})}};var w=class extends r{constructor(e){super("routine__task","p",e)}};var E=class extends r{constructor(e){super("routine__time","time",e)}};function S(t,e){if(t.id.startsWith("today")){let o=new x(`todayCase_${s.length+1}`),n=new E(`todayCase_${s.length+1}Time`),m=new w(`todayCase_${s.length+1}Task`);return m.htmlObject.innerText=e.value,o.htmlObject.append(n.htmlObject),o.htmlObject.append(m.htmlObject),s.push(o),o.htmlObject}else if(t.id.startsWith("tomorrow")){let o=new x(`tomorrowCase_${c.length+1}`),n=new E(`tomorrowCase_${c.length+1}Time`),m=new w(`tomorrowCase_${c.length+1}Task`);return m.htmlObject.innerText=e.value,o.htmlObject.append(n.htmlObject),o.htmlObject.append(m.htmlObject),c.push(o),o.htmlObject}}function g(t){let e=1;for(obj of t){let o=obj.htmlObject;o.isConnected==!0&&(o.id=o.id.split("_")[0].concat(`_${e}`),o.children[0].id=o.children[0].id.split("_")[0].concat(`_${e}Time`),o.children[1].id=o.children[1].id.split("_")[0].concat(`_${e}Task`),e++)}for(obj of t)obj.htmlObject.isConnected==!1&&t.splice(t.indexOf(obj),1)}function N(t,e){t.children[0].innerText="",e.children[0].value="",t.parentElement.replaceChild(e,t),e.children[0].focus()}function $(t,e,o){t.parentElement.append(e.htmlObject),t.remove(),g(o)}function _(t,e){let o=S(t.parentElement,t.children[0]);t.parentElement.replaceChild(o,t),o.parentElement.append(e.htmlObject)}function W(t,e){e.children[0].value=t.children[1].innerText,t.parentElement.replaceChild(e,t),e.children[0].focus()}var i={value:"new",setNew:function(){this.value="new"},setOld:function(){this.value="old"}};function R(t,e){for(obj of e)obj.htmlObject.isConnected==!1&&(obj.htmlObject.children[1].innerText=t.children[0].value,t.parentElement.replaceChild(obj.htmlObject,t))}var p=class extends r{constructor(e,o){super("routine__empty-case","button",e),this.htmlObject.addEventListener("mouseover",()=>{this.htmlObject.children[0].innerText="+"}),this.htmlObject.addEventListener("mouseout",()=>{this.htmlObject.children[0].innerText=""}),this.htmlObject.addEventListener("click",()=>{i.setNew(),N(this.htmlObject,o.htmlObject)})}};var a=class extends r{constructor(e){super("routine__empty-text","p",e)}};var d=class extends r{constructor(e,o,n){super("routine__input","input",e),document.addEventListener("click",m=>{!m.composedPath().includes(this.htmlObject)&&this.htmlObject.isConnected&&this.checkTodayInputValue()},!0),this.htmlObject.addEventListener("keydown",m=>{(m.code=="Enter"||m.code=="Escape")&&this.checkTodayInputValue()},!0),this.checkTodayInputValue=function(){this.htmlObject.value==""?$(this.htmlObject.parentElement,o,n):i.value=="new"?_(this.htmlObject.parentElement,o):i.value=="old"&&R(this.htmlObject.parentElement,n)}}};var h=class extends r{constructor(e){super("routine__input-case","div",e)}};var u=class extends r{constructor(e){super("routine__title","h3",e),this.setInnerText=function(o){this.htmlObject.innerText=o}}};var O=new b("handlerUp");document.getElementById("main").append(O.htmlObject);var C=new l("todayRoutine");C.addToParent(O);var U=new u("todayTitle");U.setInnerText("Today:");U.addToParent(C);var j=new h("todayInputCase"),y=new p("todayEmptyCase",j),F=new d("todayInputText",y,s),B=new a("todayEmptyText");F.addToParent(j);y.addToParent(C);B.addToParent(y);var v=new l("tomorrowRoutine");v.addToParent(O);var V=new u("tomorrowTitle");V.setInnerText("Tomorrow:");V.addToParent(v);var T=new h("tomorrowInputCase"),I=new p("tomorrowEmptyCase",T),q=new d("tomorrowInputText",I,c),z=new a("tomorrowEmptyText");q.addToParent(T);I.addToParent(v);z.addToParent(I);document.addEventListener("click",D);document.addEventListener("keydown",t=>{(t.code=="Enter"||t.code=="Escape")&&D()});function D(){for(elem of s)elem.hasClickEventListener==!1&&elem.addClickEventListener(j);for(elem of c)elem.hasClickEventListener==!1&&elem.addClickEventListener(T)}})();
+(() => {
+  // src/scripts/common_functions/domFunctions.js
+  function createElement(elementClassName, elementTagName, elementId) {
+    let element = document.createElement(elementTagName);
+    element.className = elementClassName;
+    element.id = elementId;
+    return element;
+  }
+  function addElementIntoDom(element, parentElement, place = "end") {
+    if (place == "end")
+      parentElement.append(element);
+    else if (place == "start")
+      parentElement.prepend(element);
+    return element;
+  }
+
+  // src/scripts/elements/class_SuperElement.js
+  var SuperElement = class {
+    constructor(name, tag, id) {
+      this.htmlObject = createElement(name, tag, id);
+      this.addToParent = function(parent, place) {
+        addElementIntoDom(this.htmlObject, parent.htmlObject, place);
+      };
+    }
+  };
+
+  // src/scripts/elements/handler.js
+  var handler = class extends SuperElement {
+    constructor(id) {
+      super("handler", "div", id);
+    }
+  };
+
+  // src/scripts/elements/routine.js
+  var routine = class extends SuperElement {
+    constructor(id) {
+      super("routine", "div", id);
+    }
+  };
+
+  // src/scripts/elements/routine__case.js
+  var routine__case = class extends SuperElement {
+    constructor(id) {
+      super("routine__case", "div", id);
+    }
+  };
+
+  // src/scripts/elements/routine__task.js
+  var routine__task = class extends SuperElement {
+    constructor(id) {
+      super("routine__task", "input", id);
+      this.htmlObject.setAttribute("maxlength", "26");
+      this.htmlObject.addEventListener("focusout", this.checkInputValue);
+      this.htmlObject.addEventListener("keydown", (e) => {
+        if (e.code == "Enter" || e.code == "Escape") {
+          this.htmlObject.blur();
+        }
+      });
+      this.htmlObject.addEventListener("keyup", (e) => {
+        let trimmedString = this.htmlObject.value.trim();
+        let emptyCase = this.htmlObject.parentElement.parentElement.querySelector(
+          ".routine__empty"
+        );
+        if (emptyCase != null) {
+          if (trimmedString.length == 0) {
+            emptyCase.style.display = "none";
+          } else {
+            emptyCase.style.display = "block";
+          }
+        }
+      });
+    }
+    checkInputValue() {
+      let trimmedString = this.value.trim();
+      if (trimmedString == "") {
+        this.parentElement.parentElement.querySelector(
+          ".routine__empty"
+        ).style.display = "block";
+        this.parentElement.remove();
+      }
+    }
+  };
+
+  // src/scripts/elements/routine__time.js
+  var routine__time = class extends SuperElement {
+    constructor(id) {
+      super("routine__time", "time", id);
+    }
+  };
+
+  // src/scripts/common_functions/caseCreator.js
+  function createNewCase(routine__empty2) {
+    if (routine__empty2.id.startsWith("today")) {
+      const newCase = new routine__case(`todayCase`);
+      const newTime = new routine__time(`todayCase_Time`);
+      const newTask = new routine__task(`todayCase_Task`);
+      newTime.htmlObject.innerText = "08:00";
+      newCase.htmlObject.append(newTime.htmlObject);
+      newCase.htmlObject.append(newTask.htmlObject);
+      return newCase.htmlObject;
+    } else if (routine__empty2.id.startsWith("tomorrow")) {
+      const newCase = new routine__case(`tomorrowCase_`);
+      const newTime = new routine__time(`tomorrowCase_Time`);
+      const newTask = new routine__task(`tomorrowCase_Task`);
+      newTime.htmlObject.innerText = "08:00";
+      newCase.htmlObject.append(newTime.htmlObject);
+      newCase.htmlObject.append(newTask.htmlObject);
+      return newCase.htmlObject;
+    }
+  }
+
+  // src/scripts/elements/routine__empty.js
+  var routine__empty = class extends SuperElement {
+    constructor(id) {
+      super("routine__empty", "button", id);
+      this.htmlObject.addEventListener("mouseover", () => {
+        this.htmlObject.innerText = "+";
+      });
+      this.htmlObject.addEventListener("mouseout", () => {
+        this.htmlObject.innerText = "";
+      });
+      this.htmlObject.addEventListener("click", () => {
+        let newCase = createNewCase(this.htmlObject);
+        this.htmlObject.parentElement.insertBefore(newCase, this.htmlObject);
+        newCase.children[1].focus();
+        this.htmlObject.style.display = "none";
+      });
+    }
+  };
+
+  // src/scripts/elements/routine__title.js
+  var routine__title = class extends SuperElement {
+    constructor(id) {
+      super("routine__title", "h3", id);
+      this.setInnerText = function(text) {
+        this.htmlObject.innerText = text;
+      };
+    }
+  };
+
+  // src/scripts/main/todayRoutine.js
+  var handlerUp = new handler("handlerUp");
+  document.getElementById("main").append(handlerUp.htmlObject);
+  var todayRoutine = new routine("todayRoutine");
+  todayRoutine.addToParent(handlerUp);
+  var todayTitle = new routine__title("todayTitle");
+  todayTitle.setInnerText("Today:");
+  todayTitle.addToParent(todayRoutine);
+  var todayEmpty = new routine__empty("todayEmpty");
+  todayEmpty.addToParent(todayRoutine);
+
+  // src/scripts/main/tomorrowRoutine.js
+  var tomorrowRoutine = new routine("tomorrowRoutine");
+  tomorrowRoutine.addToParent(handlerUp);
+  var tomorrowTitle = new routine__title("tomorrowTitle");
+  tomorrowTitle.setInnerText("Tomorrow:");
+  tomorrowTitle.addToParent(tomorrowRoutine);
+  var tomorrowEmpty = new routine__empty("tomorrowEmpty");
+  tomorrowEmpty.addToParent(tomorrowRoutine);
+})();
 //# sourceMappingURL=bundle.js.map

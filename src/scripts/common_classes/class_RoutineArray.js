@@ -5,5 +5,8 @@ export default class RoutineArray extends Array {
   // }
 }
 
-export const todayCases = new RoutineArray();
-export const tomorrowCases = new RoutineArray();
+// export const todayCases = new RoutineArray();
+// export const tomorrowCases = new RoutineArray();
+
+// export const todayTasks = new RoutineArray();
+// export const tomorrowTasks = new RoutineArray();

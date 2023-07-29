@@ -1,10 +1,19 @@
-$routine-width: 400px;
-$routine-heigth: 200px;
+@use "../colors" as c;
+
+$routine-width: 480px;
+$routine-heigth: 350px;
 $routine-border: 4px;
 
-.routine{
-    border: $routine-border solid rgba($color: #e92626, $alpha: 1.0);
+.routine {
+  border: $routine-border solid rgba($color: #e92626, $alpha: 1);
+  background-color: c.$background-color;
 
-    width: $routine-width;
-    height: $routine-heigth;
+  width: $routine-width;
+  height: $routine-heigth;
+
+  transition: 0.3s;
+}
+
+.routine:hover {
+  transform: scale(1.1);
 }

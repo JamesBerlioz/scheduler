@@ -1,7 +1,36 @@
-@use '../fonts' as f;
+@use "../fonts" as f;
+@use "../colors" as c;
+@use "routine__case" as case;
+@use "routine__time" as time;
 
-.routine__task{
-    font-size:f.$size;
-    font-family: f.$open-sans;
-    font-weight: f.$weight;
+$task-width: calc(
+  case.$case-width - time.$time-width - time.$time-margin-right
+);
+
+.routine__task {
+  font-size: f.$size;
+  font-family: f.$open-sans;
+  font-weight: f.$weight;
+  text-align: left;
+
+  display: flex;
+  align-items: center;
+
+  background-color: inherit;
+  outline: none;
+  border: none;
+
+  width: $task-width;
+  height: case.$case-height;
 }
+
+.routine__task:hover {
+  background-color: c.$case-hover-color;
+  cursor: pointer;
+}
+
+.routine__task:focus {
+    cursor: text;
+  
+    caret-color: #040057;
+  }

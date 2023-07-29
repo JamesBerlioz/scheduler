@@ -1,8 +1,10 @@
 @use "../colors" as c;
-@use 'routine' as routine;
+@use "routine" as routine;
 
 $case-margin: 15px;
-$case-width: calc(routine.$routine-width - routine.$routine-border*2 - $case-margin*2);
+$case-width: calc(
+  routine.$routine-width - routine.$routine-border * 2 - $case-margin * 2
+);
 $case-height: 30px;
 
 .routine__case {
@@ -14,11 +16,5 @@ $case-height: 30px;
   width: $case-width;
   height: $case-height;
 
-  cursor: pointer;
   background-color: inherit;
-  transition: 0.3s;
-}
-
-.routine__case:hover {
-  background-color: c.$case-hover-color;
 }

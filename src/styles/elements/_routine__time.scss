@@ -1,10 +1,27 @@
-@use '../fonts' as f;
+@use "../fonts" as f;
+@use "../colors" as c;
+@use "routine__case" as case;
+
+$time-width: 40px;
+$time-margin-right: 10px;
 
 .routine__time {
-  font-size:f.$size;
+  font-size: f.$size;
   font-family: f.$open-sans;
   font-weight: f.$weight;
+  text-align: center;
 
-  margin-right: 10px;
-  margin-left: 5px;
+  display: flex;
+  align-items: center;
+
+ // margin-right: $time-margin-right;
+   padding: 0 10px;
+
+  //width: $time-width;
+  height: case.$case-height;
+}
+
+.routine__time:hover {
+  background-color: c.$case-hover-color;
+  cursor: pointer;
 }
