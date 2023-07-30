@@ -23,7 +23,7 @@ export class routine__task extends SuperElement {
       if (emptyCase != null) {
         if (trimmedString.length == 0) {
           emptyCase.style.display = "none";
-        } else {
+        } else if (emptyCase.parentElement.childElementCount < 12) { 
           emptyCase.style.display = "block";
         }
       }
@@ -37,6 +37,8 @@ export class routine__task extends SuperElement {
         ".routine__empty"
       ).style.display = "block";
       this.parentElement.remove();
+    } else {
+      //this.previousElementSibling.focus();
     }
   }
 }

@@ -1,0 +1,26 @@
+@use "../elements/routine" as routine;
+@use "../colors" as c;
+
+.routine_small {
+  background-color: #414141;
+
+  width: 160px;
+  height: 160px;
+  
+}
+
+.routine_small:hover {
+  background-color: c.$background-color;
+
+  width: routine.$routine-width;
+  height: routine.$routine-heigth;
+  transform: translate(0, -120px);
+}
+
+// .routine_small > * {
+//   display: none;
+// }
+
+// .routine_small:hover > * {
+//   display: flex;
+// }

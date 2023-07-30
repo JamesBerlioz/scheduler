@@ -1,4 +1,3 @@
-import { handler } from "../elements/handler";
 import { routine } from "../elements/routine";
 import { routine__empty } from "../elements/routine__empty";
 import { routine__title } from "../elements/routine__title";

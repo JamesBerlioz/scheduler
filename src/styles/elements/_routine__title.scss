@@ -1,5 +1,8 @@
+@use "../fonts" as f;
+
 .routine__title{
     font-size: 30px;
-    font-family: 'Open Sans', sans-serif;
+    font-family: f.$open-sans;
     font-weight: 700;
+    text-align: center;
 }

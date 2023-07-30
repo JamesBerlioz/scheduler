@@ -30,7 +30,7 @@ $task-width: calc(
 }
 
 .routine__task:focus {
-    cursor: text;
-  
-    caret-color: #040057;
-  }
+  cursor: text;
+  text-align: center;
+  caret-color: #040057;
+}

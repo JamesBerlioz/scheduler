@@ -2,10 +2,14 @@
 @use "../colors" as c;
 @use "routine__case" as case;
 
-$time-width: 40px;
-$time-margin-right: 10px;
+$time-width: 100px;
+$time-margin-right: 0px;
 
 .routine__time {
+  background-color: inherit;
+  outline: none;
+  border: none;
+
   font-size: f.$size;
   font-family: f.$open-sans;
   font-weight: f.$weight;
@@ -14,10 +18,10 @@ $time-margin-right: 10px;
   display: flex;
   align-items: center;
 
- // margin-right: $time-margin-right;
-   padding: 0 10px;
+  margin-right: $time-margin-right;
+  //padding: 0 10px;
 
-  //width: $time-width;
+  width: $time-width;
   height: case.$case-height;
 }
 
@@ -25,3 +29,4 @@ $time-margin-right: 10px;
   background-color: c.$case-hover-color;
   cursor: pointer;
 }
+
