@@ -1,4 +1,5 @@
-@use 'colors' as c;
+@use "colors" as c;
+@use "breakpoints" as b;
 
 html {
   box-sizing: border-box;
@@ -11,14 +12,20 @@ html {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
+  color: c.$text-color;
+}
+
+*:hover{
+  color: c.$text-hover-color;
 }
 
 body {
   background-color: c.$background-color;
- overflow: hidden;
+  overflow: hidden;
+
+  @include b.breakpoint(small) {
+    overflow: visible;
+  }
 }
 
-a {
-    text-decoration: none;
-}
 

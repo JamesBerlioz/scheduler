@@ -1,4 +1,5 @@
 @use "../colors" as c;
+@use "../breakpoints" as b;
 @use "routine__case" as case;
 @use "../fonts" as f;
 
@@ -16,8 +17,25 @@
   cursor: pointer;
   background-color: inherit;
   transition: 0.3s;
+
+  @include b.breakpoint(xlarge) {
+    font-size: f.$size-large;
+
+    width: case.$case-width-large;
+    height: case.$case-height-large;
+    margin: 0 case.$case-margin-large;
+  }
+
+  @include b.breakpoint(large) {
+    font-size: f.$size-medium;
+
+    width: case.$case-width-medium;
+    height: case.$case-height-medium;
+    margin: 0 case.$case-margin-medium;
+  }
 }
 
-.routine__empty:hover {
+.routine__empty:hover, .routine__empty:active {
   background-color: c.$case-hover-color;
 }
+

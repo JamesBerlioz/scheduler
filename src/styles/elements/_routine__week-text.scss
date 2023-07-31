@@ -1,10 +1,32 @@
 @use "../fonts" as f;
+@use "../breakpoints" as b;
 
 .routine__week-text {
   font-size: 70px;
   font-family: f.$open-sans;
   font-weight: f.$weight;
+  user-select: none;
+
   text-align: center;
+  color: aqua;
 
   margin-top: 20px;
+
+  @include b.breakpoint(xlarge) {
+    font-size: 50px;
+  }
+
+  @include b.breakpoint(large) {
+    font-size: 35px;
+  }
+
+  @include b.breakpoint(medium) {
+    font-size: 28px;
+    margin-top: 16px;
+  }
+
+  @include b.breakpoint(small) {
+    font-size: 28px;
+    margin-top: 6px;
+  }
 }

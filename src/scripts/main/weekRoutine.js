@@ -3,13 +3,19 @@ import { routine } from "../elements/routine";
 import { routine__empty } from "../elements/routine__empty";
 import { routine__title } from "../elements/routine__title";
 import { routine__weekText } from "../elements/routine__week-text";
-import {routine_smallStyle} from "../modifiers/routine_small"
+import { routine_smallStyle } from "../modifiers/routine_small";
 
 export const handlerDown = new handler("handlerDown");
 document.getElementById("main").append(handlerDown.htmlObject);
 
 for (let i = 0; i < 7; i++) {
-  const weekRoutine = new routine("weekRoutine");
+  let weekRoutine;
+  if (i == 6) {
+    weekRoutine = new routine("weekRoutine", 0);
+  } else {
+    weekRoutine = new routine("weekRoutine", i + 1);
+  }
+
   weekRoutine.htmlObject.classList.add("routine_small");
   weekRoutine.addToParent(handlerDown);
 
@@ -27,7 +33,6 @@ for (let i = 0; i < 7; i++) {
 
 routine_smallStyle();
 
-
 function setWeekTitle(i, weekTitle, weekText) {
   switch (i) {
     case 0:
@@ -36,7 +41,7 @@ function setWeekTitle(i, weekTitle, weekText) {
       break;
     case 1:
       weekTitle.setInnerText("Tuesday:");
-      weekText.setInnerText("Ts");
+      weekText.setInnerText("Tu");
       break;
     case 2:
       weekTitle.setInnerText("Wednesday:");

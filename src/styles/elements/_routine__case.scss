@@ -1,11 +1,24 @@
 @use "../colors" as c;
 @use "routine" as routine;
+@use "../breakpoints" as b;
 
 $case-margin: 15px;
 $case-width: calc(
   routine.$routine-width - routine.$routine-border * 2 - $case-margin * 2
 );
-$case-height: 30px;
+$case-height: 28px;
+
+$case-margin-large: 12px;
+$case-width-large: calc(
+  routine.$routine-width-large - routine.$routine-border * 2 - $case-margin-large * 2
+);
+$case-height-large: 22px;
+
+$case-margin-medium: 10px;
+$case-width-medium: calc(
+  routine.$routine-width-medium - routine.$routine-border * 2 - $case-margin-medium * 2
+);
+$case-height-medium: 20px;
 
 .routine__case {
   display: flex;
@@ -17,4 +30,16 @@ $case-height: 30px;
   height: $case-height;
 
   background-color: inherit;
+
+  @include b.breakpoint(xlarge) {
+    width: $case-width-large;
+    height: $case-height-large;
+    margin: 0 $case-margin-large;
+  }
+
+  @include b.breakpoint(large) {
+    width: $case-width-medium;
+    height: $case-height-medium;
+    margin: 0 $case-margin-medium;
+  }
 }

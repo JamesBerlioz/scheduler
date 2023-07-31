@@ -1,26 +1,53 @@
 @use "../elements/routine" as routine;
 @use "../colors" as c;
+@use "../breakpoints" as b;
 
 .routine_small {
-  background-color: #414141;
+  background-color: #1e1e1e;
+  border: routine.$routine-border solid rgba($color: #39f5ff, $alpha: 1);
 
   width: 160px;
   height: 160px;
-  
+
+  @include b.breakpoint(xlarge) {
+    width: 120px;
+    height: 120px;
+  }
+
+  @include b.breakpoint(large) {
+    width: 100px;
+    height: 100px;
+  }
+
+  @include b.breakpoint(medium) {
+    width: 80px;
+    height: 80px;
+  }
+
+  @include b.breakpoint(small) {
+    width: routine.$routine-width-medium;
+    height: 60px;
+  }
 }
 
 .routine_small:hover {
-  background-color: c.$background-color;
+  //background-color: c.$background-color;
 
   width: routine.$routine-width;
   height: routine.$routine-heigth;
   transform: translate(0, -120px);
+
+  @include b.breakpoint(xlarge) {
+    width: routine.$routine-width-large;
+    height: routine.$routine-heigth-large;
+  }
+
+  @include b.breakpoint(large) {
+    width: routine.$routine-width-medium;
+    height: routine.$routine-heigth-medium;
+  }
+
+  @include b.breakpoint(small) {
+    transform: translate(0, 0);
+  }
 }
-
-// .routine_small > * {
-//   display: none;
-// }
-
-// .routine_small:hover > * {
-//   display: flex;
-// }

@@ -16,6 +16,8 @@ export function routine_smallStyle() {
             child.style.display = "flex";
           } else if (child.id.endsWith("Text")) {
             child.style.display = "none";
+          } else if (child.id.endsWith("Empty") && list[i].childElementCount > 12) {
+            child.style.display = "none";
           } else {
             child.style.display = "block";
           }
@@ -24,6 +26,11 @@ export function routine_smallStyle() {
     });
 
     list[i].addEventListener("mouseleave", () => {
+      for (child of list[i].children) {
+        if (child.id.endsWith("Case")) {
+          child.children[1].blur();
+        }
+      }
       setTimeout(() => {
         for (child of list[i].children) {
           if (child.id.endsWith("Text")) {

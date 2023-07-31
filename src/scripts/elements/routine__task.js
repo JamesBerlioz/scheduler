@@ -1,3 +1,4 @@
+import { createNewCase } from "../common_functions/caseCreator";
 import SuperElement from "./class_SuperElement";
 
 export class routine__task extends SuperElement {
@@ -23,7 +24,7 @@ export class routine__task extends SuperElement {
       if (emptyCase != null) {
         if (trimmedString.length == 0) {
           emptyCase.style.display = "none";
-        } else if (emptyCase.parentElement.childElementCount < 12) { 
+        } else if (emptyCase.parentElement.childElementCount < 12) {
           emptyCase.style.display = "block";
         }
       }
@@ -38,7 +39,21 @@ export class routine__task extends SuperElement {
       ).style.display = "block";
       this.parentElement.remove();
     } else {
-      //this.previousElementSibling.focus();
+      // let date = new Date();
+      // let dayNumber = date.getDay();
+
+      // let routineCollection = document.getElementsByClassName("routine");
+      // for (let rout of routineCollection) {
+      //   if (rout.id.endsWith(dayNumber.toString())) {
+      //     // let todayEmpty = document.getElementById("todayEmpty");
+      //     // let newCase = createNewCase(todayEmpty);
+
+      //     // newCase.children[1].value = this.value;
+      //     // todayEmpty.parentElement.insertBefore(newCase, todayEmpty);
+
+      //     document.getElementById("todayRoutine").innerHTML = rout.innerHTML;
+      //   }
+      // }
     }
   }
 }

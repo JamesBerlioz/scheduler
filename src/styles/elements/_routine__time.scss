@@ -1,9 +1,16 @@
 @use "../fonts" as f;
 @use "../colors" as c;
+@use "../breakpoints" as b;
 @use "routine__case" as case;
 
 $time-width: 100px;
-$time-margin-right: 0px;
+$time-margin-right: 10px;
+
+$time-width-large: 84px;
+$time-margin-right-large: 8px;
+
+$time-width-medium: 72px;
+$time-margin-right-medium: 6px;
 
 .routine__time {
   background-color: inherit;
@@ -23,6 +30,22 @@ $time-margin-right: 0px;
 
   width: $time-width;
   height: case.$case-height;
+
+  @include b.breakpoint(xlarge) {
+    font-size: f.$size-large;
+
+    width: $time-width-large;
+    height: case.$case-height-large;
+    margin-right: $time-margin-right-large;
+  }
+
+  @include b.breakpoint(large) {
+    font-size: f.$size-medium;
+
+    width: $time-width-medium;
+    height: case.$case-height-medium;
+    margin-right: $time-margin-right-medium;
+  }
 }
 
 .routine__time:hover {

@@ -1,19 +1,44 @@
 @use "../colors" as c;
 @use "../fonts" as f;
+@use "../breakpoints" as b;
 
 $routine-width: 460px;
 $routine-heigth: 330px;
 $routine-border: 4px;
 
+$routine-width-large: 360px;
+$routine-heigth-large: 265px;
+$routine-border-large: 4px;
+
+$routine-width-medium: 300px;
+$routine-heigth-medium: 250px;
+$routine-border-medium: 4px;
+
 .routine {
-  border: $routine-border solid rgba($color: #e92626, $alpha: 1);
-  background-color: c.$background-color;
+  border: $routine-border solid rgba($color: #b1b0b0, $alpha: 1);
+  //background-color: c.$background-color;
 
   width: $routine-width;
   height: $routine-heigth;
   margin: 70px 0px 0;
 
   transition: 0.3s;
+
+  @include b.breakpoint(xlarge) {
+    width: $routine-width-large;
+    height: $routine-heigth-large;
+    margin: 110px 0px 0;
+  }
+
+  @include b.breakpoint(large) {
+    width: $routine-width-medium;
+    height: $routine-heigth-medium;
+    margin: 140px 0px 0;
+  }
+
+  @include b.breakpoint(small) {
+    margin: 60px auto 0;
+  }
 }
 
 .routine:hover {

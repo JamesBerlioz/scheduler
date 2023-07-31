@@ -1,8 +1,26 @@
+@use "../breakpoints" as b;
+
 .handler {
   display: flex;
   justify-content: space-around;
+
+  @include b.breakpoint(small) {
+    display: block;
+  }
 }
 
-#handlerUp{
-    padding: 0 150px;
+#handlerUp {
+  padding: 0 150px;
+
+  @include b.breakpoint(xlarge) {
+    padding: 0 100px;
+  }
+
+  @include b.breakpoint(large) {
+    padding: 0 50px;
+  }
+
+  @include b.breakpoint(medium) {
+    padding: 0 20px;
+  }
 }

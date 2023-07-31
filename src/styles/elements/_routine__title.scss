@@ -1,8 +1,23 @@
 @use "../fonts" as f;
+@use "../breakpoints" as b;
+@use "../colors" as c;
 
-.routine__title{
-    font-size: 30px;
-    font-family: f.$open-sans;
-    font-weight: 700;
-    text-align: center;
+.routine__title {
+  font-size: 30px;
+  font-family: f.$open-sans;
+  font-weight: 700;
+  text-align: center;
+  user-select: none;
+
+  @include b.breakpoint(xlarge) {
+    font-size: 24px;
+  }
+
+  @include b.breakpoint(large) {
+    font-size: 20px;
+  }
+}
+
+.routine__title:hover{
+  color: c.$text-color;
 }

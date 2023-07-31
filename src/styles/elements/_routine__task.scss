@@ -1,10 +1,19 @@
 @use "../fonts" as f;
 @use "../colors" as c;
+@use "../breakpoints" as b;
 @use "routine__case" as case;
 @use "routine__time" as time;
 
 $task-width: calc(
   case.$case-width - time.$time-width - time.$time-margin-right
+);
+
+$task-width-large: calc(
+  case.$case-width-large - time.$time-width-large - time.$time-margin-right-large
+);
+
+$task-width-medium: calc(
+  case.$case-width-medium - time.$time-width-medium - time.$time-margin-right-medium
 );
 
 .routine__task {
@@ -22,6 +31,22 @@ $task-width: calc(
 
   width: $task-width;
   height: case.$case-height;
+
+  padding-left: 5px;
+
+  @include b.breakpoint(xlarge) {
+    font-size: f.$size-large;
+
+    width: $task-width-large;
+    height: case.$case-height-large;
+  }
+
+  @include b.breakpoint(large) {
+    font-size: f.$size-medium;
+
+    width: $task-width-medium;
+    height: case.$case-height-medium;
+  }
 }
 
 .routine__task:hover {
