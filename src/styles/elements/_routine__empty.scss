@@ -15,7 +15,7 @@
   height: case.$case-height;
 
   cursor: pointer;
-  background-color: inherit;
+  background-color: rgba(0, 255, 255, 0.1);
   transition: 0.3s;
 
   @include b.breakpoint(xlarge) {
