@@ -1,2 +1,2 @@
 # to-do-list
-used: vanilla-js, sass, bem, esbuild, express-server.
+technologies: vanilla-js, sass, bem, esbuild, express-server, oop.
